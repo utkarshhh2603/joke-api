@@ -12,10 +12,16 @@ jokes = [
     "Why do cows wear bells? Because their horns don't work."
 ]
 
-@app.route('/joke', methods=['GET'])
-def get_joke():
-    joke = random.choice(jokes)  # Pick a random joke
-    return jsonify({"joke": joke})
+@app.route('/', methods=['GET'])
+def home():
+    return {
+        "message": "Welcome to the Random Joke API! 🎉",
+        "endpoints": {
+            "/joke": "Get a random joke"
+        }
+    }
+
 
 if __name__ == '__main__':
     app.run(debug=True)
+
