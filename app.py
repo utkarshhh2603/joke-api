@@ -12,9 +12,10 @@ jokes = [
     "I only know 25 letters of the alphabet. I don't know y."
 ]
 
-@app.route('/')
+@app.route("/")
 def home():
-    return jsonify(message="Welcome to the Random Joke API 🎉")
+    return {"message": "Welcome to the Random Joke API! Go to /joke to get a joke."}
+
 
 @app.route('/joke', methods=['GET'])
 def get_joke():
@@ -22,4 +23,5 @@ def get_joke():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
 
